@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+
+    <body>
+        <a href="/user_profile/{{ user.getId }}">{{ user.getUsername }}</a>
+        <div class="container">
+            <ul>
+            {% for user in all_users %}
+                <li><a href="/user_profile/{{ user.getId }}">{{ user.getUsername }}</a></li>
+            {% endfor %}
+            </ul>
+
+            <form action="/delete_all_users" method="post">
+                <button class="btn-danger btn">Delete ALL Users</button>
+            </form>
+        </div>
+    </body>
+    {% include 'footer.html' %}
+</html>

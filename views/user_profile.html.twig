@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/css/profile-styles.css" media="screen" title="no title" charset="utf-8">
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    <script src="/js/jquery-1.12.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/js/scripts.js"></script>
+    <title>Poly Profile Page</title>
+
+  </head>
+            {% include 'upload-image-box.html' %}
+            {% include 'sign-in-box.html' %}
+  <body>
+  <div class="wrapper">
+
+    <div class="navbar">
+    <div id="logo">
+      <img src="/img/logo2.png" alt="logo" />
+    </div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about_page">About</a></li>
+      {% if session[1] == null %}
+      <li><a href="/register">Register</a></li>
+      <li><a href="#" id="log-in">Log In</a></li>
+      {% else %}
+      <li><a href="/user_profile/{{ user.getId }}">Profile</a></li>
+      <li><a href="/user_sign_out">Sign Out</a></li>
+      {% endif %}
+    </ul>
+    </div>
+  <div class=profile-info>
+    <div class="photo">
+      <img src="{{ user_images[0].getUrl }}" alt="male generic profile" />
+    </div>
+    <div class="info">
+      <h3>Name/Username: {{user.getUsername}} </h3><p>
+
+      </p>
+        <h3>First Name: {{user.getFirstName}} </h3><p>
+
+        </p>
+      <h3>Last Name: {{user.getLastName}}</h3><p>
+
+       </p>
+      <h3>Status: {{user.getStatus}}</h3><p>
+
+        </p>
+      <h3>Kink Friendly?: {{user.getKinkFriendly}}</h3><p>
+
+      </p>
+      <h3>Birthday: {{user.getBirthday}}</h3><p>
+
+      </p>
+      <h3>Email: {{user.getEmail}}</h3><p>
+
+      </p>
+      <h3>Seeking Gender(s): {% for gender in seeking_genders %} {{ gender.getName}} {% endfor %}</h3><p>
+
+      </p>
+      <h3>Seeking Relationship(s): {{ user.getSeekingRelationshipType }}</h3><p>
+
+      </p>
+      <h3>Current Relationship(s): {{ user.getRelationshipType }}</h3><p>
+
+      </p>
+      <h3>Last Login: {{ user.getLastLogin }}</h3><p>
+
+      </p>
+      <h3>City: {{ user.getCityName }}</h3><p>
+
+      </p>
+      <h3>Zip Code: {{user.getZipCode }}</h3><p>
+
+      </p>
+        {% include 'view-images-box.html' %}
+      <a href="#" id='view-images'>View All Images</a>
+    </div>
+  </div>
+
+  <div class="details">
+      <h3>About Me:</h3>
+      <p>
+        {{ user.getAboutMe }}
+      </p>
+      <h3>Interests/Hobbies:</h3>
+      <p>
+        {{ user.getInterests }}
+      </p>
+    </div>
+
+    <div class="allIcons">
+
+      <div class="icon">
+        <div class="img1">
+          <img src="{{ user_images[1].getUrl }}" alt="" />
+        </div>
+        <div class="info">
+          <p>
+            blah, blah, blah
+          </p>
+        </div>
+     </div>
+
+       <div class="icon">
+         <div class="img2">
+           <img src="{{ user_images[2].getUrl }}" alt="" />
+         </div>
+        <div class="info">
+          <p>
+           it's just wishful thinking, you'll die alone
+          </p>
+        </div>
+        {% if session[1] == user.getId %}
+        <a href="#" id="upload-image">Upload Images</a>
+        <form action="/delete_user" method="post" class="form-inline">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="user_id" value="{{ user.getId }}">
+            <button type="submit" style="color:red;border:none;text-decoration:underline;background:none;">Delete My Profile</button>
+        </form>
+        {% endif %}
+      </div>
+
+      <div class="icon">
+        <div class="img3">
+          <img src="{{ user_images[3].getUrl }}" alt="" />
+        </div>
+       <div class="info">
+         <p>
+          when you die, your cat will happily eat your face.
+         </p>
+
+       </div>
+      </div>
+
+    </div>
+  <footer>
+    <h2> &copy 2016 Poly Something</h2>
+  </footer>
+  </div>
+  <div class="transparency">
+  </div>
+  </body>
+</html>

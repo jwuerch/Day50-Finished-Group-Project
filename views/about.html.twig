@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8"><link rel="stylesheet" href="/css/about-styles.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <title>ABOUT US</title>
+  </head>
+  {% include 'sign-in-box.html' %}
+  <body>
+
+    <div class="container">
+
+      <div class="navbar">
+        <div id="logo">
+          <!-- <img src="img/logo2.png" alt="logo" /> -->
+           <i class="fa fa-transgender-alt fa-5x"></i>
+        </div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about_page">About</a></li>
+      {% if session[1] == null %}
+      <li><a href="/register">Register</a></li>
+      <li><a href="#" id="log-in">Log In</a></li>
+      {% else %}
+      <li><a href="/user_profile/{{ user.getId }}">Profile</a></li>
+      <li><a href="/user_sign_out">Sign Out</a></li>
+      {% endif %}
+    </ul>
+    </div>
+
+      <div class="about">
+
+        <h1>We create a safe space for you to find your loves.</h1>
+        <br>
+        <h2>About Us</h2>
+        <p>
+          Polyamory is, simply put, the capacity to love many. Our site brings together all kinds of people in a web community setting and creates a place for them to connect and kindle romance.</p>
+
+          <p>
+          This is a safe space for those who identify as:
+          <br>Poly • Polyamorous • Ethical Non-Monogamist • Ethical Hedonist • Ethical Swinger • Polyamorist • Prefer not to self identify but feel that monogamy is too limiting
+        </p>
+
+        <p>
+          Not only do we provide a tasteful adult environment; bringing people together for love, friendship, or whatever type or relationship you're seeking. We also seek to be a resource for learning about Polyamory in its many forms and nuances. The practice of Polyamory can be as unique as each of us are. We hope to help you find what you're looking for.
+        </p>
+      </div>
+
+      <div class="history">
+        <h2>A Brief History of Polyamory</h2>
+
+        <p>
+          What exactly is "polyamory" and what is all the fuss about it?
+        </p>
+
+        <p>
+          The definition of and history of Polyamory: "Polyamory" is a recently coined word that was derived by combining the Greek word "poly" meaning many, and the Latin word "amor" meaning love. Polyamory is intended to mean many loves. The exact definition of polyamory is not so clear, but when the word is used, the intent is generally meant to imply the state in which an individual can love more than one person romantically and simultaneously
+        </p>
+
+        <p>
+        Polyamory and polyfidelity are the newest forms of family relationships to gain attention in the media. Polyamory has been around in some form or another for thousands of years. Please see our links below for some helpful resources to those new in the community
+        </p>
+    </div>
+
+    <div class="resources">
+      <h2>Resources</h2>
+      <ul>
+
+    <li>
+      <a href="http://www.polymatchmaker.com/main.mvc?Screen=HTML&Page=polyglossary">Poly Glossary</a>
+    </li>
+    <li>
+      <a href="http://opencommunityportland.com/">Open Community Portland</a>
+    </li>
+    <li>
+      <a href="http://www.pdxqcenter.org/resources/medical/mental-health/">Q Center Guide to Poly-friendly Mental Health Providers</a>
+    </li>
+    <li>
+      <a href=http://www.meetup.com/Portland-Polyamory/>Portland Polyamory Meet Up Group</a>
+    </li>
+    <li>
+      <a href="http://www.meetup.com/Seattle-Polyamory/">Seattle Polyamory Meet Up Group</a>
+    </li>
+    <li>
+      <a href="http://www.sexpositiveworld.org/">Sex Positive World</a>
+    </li>
+   </ul>
+    </div>
+
+
+    <footer>
+      <h2> &copy 2016 PolyMatch</h2>
+      <a href="#"><i class="fa fa-facebook-square"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+    </footer>
+
+  </div>
+  <div class="transparency">
+  </div>
+  </body>
+</html>
